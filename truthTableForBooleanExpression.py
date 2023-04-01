@@ -202,3 +202,63 @@ for i in range(2**n):
         l1.append(int(tt[j][i]))
     print(int(eval(exp)))
 
+"""
+while True:
+    t = input("Enter Variables : ").lower()
+    if not t:
+        break
+    l = [i for i in t if i.isalpha()]
+    l.sort()
+    n = 0
+    i = 0
+    while i<len(l):
+        if l.count(l[i])>1:
+            l.pop(i)
+        else:
+            i += 1
+    n = len(l)
+    tt = []
+    for i in range(n):
+        counter = 2**(n)/(2**(i+1))
+        tt.append([])
+        pol = -1
+        for j in range(2**n):
+            if counter == 0:
+                counter = pol * 2**(n)/(2**(i+1))
+                pol *= -1
+            if counter>0:
+                tt[i].append(0)
+                counter -= 1
+            else:
+                tt[i].append(1)
+                counter += 1
+
+    m = input("Enter Expression : ").lower()
+    exp = []
+    for i in m:
+        if i == "+":
+            exp.append("or")
+        elif i == "'":
+            exp.append("not")
+        elif i == ".":
+            exp.append("and")
+        elif i.isalpha():
+            exp.append("l1[" + str(l.index(i)) + "]")
+        else:
+            exp.append(i)
+            
+    exp = " ".join(exp)
+    try:
+        print(exp)
+        for i in l:
+            print(i.upper(), end=" ")
+        print("Z")
+        for i in range(2**n):
+            l1 = []
+            for j in range(n):
+                print(tt[j][i], end = " ")
+                l1.append(int(tt[j][i]))
+            print(int(eval(exp)))
+    except:
+        print("\nInvalid!!", exp, sep="\n")
+"""
